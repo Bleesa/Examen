@@ -26,7 +26,7 @@
 		<a href="characterSearcher">Looking for Characters</a><br/>
 	</div>
 	<div>
-		<a href="/ActorSearcher.jsp">Searcher of Director by ActorHolaa</a><br/>
+		<a href="/ActorSearcher.jsp">Searcher of Director by Actor</a><br/>
 	</div>
 
 	

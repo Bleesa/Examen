@@ -26,6 +26,7 @@
 	<br />
 
 	<table border="1">
+	
 		<thead>
 			<tr>
 				<td>Film Acted</td>

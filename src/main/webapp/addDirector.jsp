@@ -40,7 +40,9 @@
 			<c:forEach var="director1" items="${listAllDirectors}">
 				<tr>
 					<td><c:out value="${director1.name}" /></td>
+					
 					<td><a href="/deleteDirector?codDirector=${director1.cod}">DELETE</a>
+					
 					</td>
 				</tr>
 			</c:forEach>

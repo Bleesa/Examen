@@ -15,6 +15,7 @@
 
 	<%
 		List<Actor> listAllActores = (List<Actor>)request.getAttribute("listAllActores");
+	
 		 request.getAttribute("codPelicula");
 	%>
 
@@ -30,6 +31,7 @@
 		<tbody>
 			<c:forEach var="actor" items="${listAllActores}">
 				<tr>
+				
 					<td><c:out value="${actor.cod}" /></td>
 					<td><c:out value="${actor.name}" /></td>
 					<td><c:out value="${actor.yearofbirthday}" /></td>

@@ -25,6 +25,7 @@ List<Film> listAllPeliculas = (List<Film>)request.getAttribute("listAllPeliculas
 	
 <table border="1">
 	<thead>
+	
 		<tr>
 			<td>Cod</td>
 			<td>Title</td>

@@ -25,9 +25,11 @@
 	%>
 
 	<form action="AddPelicula" method="post">
+	
 		<span>Title:</span><input type="text" name="TITTLE">
 		<span>Director's Code:</span><input type="number" name="CODOWNER">
 		<input type="submit" value="Send">
+		
 	</form>
 	<table border="1">
 		<thead>

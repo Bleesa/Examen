@@ -11,7 +11,8 @@
 </head>
 <body>
 <%
-List<Film> listAllFilms = (List<Film>)request.getAttribute("listAllFilms");
+
+	List<Film> listAllFilms = (List<Film>)request.getAttribute("listAllFilms");
 %>
 
 

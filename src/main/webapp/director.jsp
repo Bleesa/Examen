@@ -7,10 +7,12 @@
 <title>Inserting Director</title>
 </head>
 <body>
+
 	<form action="/pelicula" method="post">
 		<span>cod:</span> <input type="text" name="cod"> <br />
 		<span>name:</span> <input type="text" name="name"> <br />
 		<input type="submit">
 	</form>
+	
 </body>
 </html>

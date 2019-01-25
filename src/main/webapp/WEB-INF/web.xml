@@ -98,14 +98,17 @@
     <servlet-name>ActorsList</servlet-name>
     <url-pattern>LoadActorsList</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
 	<servlet-name>ActorSeacherServlet</servlet-name>
 	<url-pattern>/ActorSearcher</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>DeleteActorServlet</servlet-name>
     <url-pattern>/deleteActor</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>DeleteDirectorServlet</servlet-name>
     <url-pattern>/deleteDirector</url-pattern>
