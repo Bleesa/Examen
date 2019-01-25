@@ -11,23 +11,28 @@ public class FilmService {
 	private RepositoryFilm repositoryFilm = new RepositoryFilm();
 
 	public RepositoryFilm getRepository() {
+
 		return repositoryFilm;
 	}
 
 	public void setRepository(RepositoryFilm repositoryFilm) {
+
 		this.repositoryFilm = repositoryFilm;
 	}
 
 	public void addFilm(Film film) {
+
 		repositoryFilm.insertFilm(film);
 	}
 
 	public List<Film> listAllFilms() {
-		return repositoryFilm.searchAllPeliculas();
+
+		return repositoryFilm.searchAllFilms();
 	}
 
 	public void searchAndDeleteFilm(Integer codPelicula) {
-		repositoryFilm.searchAndDeletePelicula(codPelicula);
+
+		repositoryFilm.searchAndDeleteFilm(codPelicula);
 	}
 
 }

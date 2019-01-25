@@ -23,6 +23,7 @@ public class AddActorServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String parameter = req.getParameter("beginDate");
 		List<Actor> listAllActors = new ArrayList<>();
 		if (parameter != null) {

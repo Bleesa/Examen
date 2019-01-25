@@ -21,6 +21,7 @@ public class PeliculaServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String codString = req.getParameter("cod");
 		String title = req.getParameter("title");
 		String codDirectorString = req.getParameter("codDirector");
@@ -36,6 +37,7 @@ public class PeliculaServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String codString = req.getParameter("cod");
 		
 		if(null != codString) {

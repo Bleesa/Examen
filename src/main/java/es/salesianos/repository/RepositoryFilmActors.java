@@ -59,7 +59,7 @@ public class RepositoryFilmActors {
 
 	}
 
-	public FilmActors filterAllPeliculaActor(String role) {
+	public FilmActors filterAllFilmActor(String role) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		FilmActors filmActor = null;
@@ -69,12 +69,14 @@ public class RepositoryFilmActors {
 			preparedStatement.setString(1, role);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				FilmActors peliculaActorfromDataBase = new FilmActors();
-				peliculaActorfromDataBase.setCache(resultSet.getInt(1));
-				peliculaActorfromDataBase.setRole(resultSet.getString(2));
-				peliculaActorfromDataBase.setCodActor(resultSet.getInt(3));
-				peliculaActorfromDataBase.setCodFilm(resultSet.getInt(4));
-				filmActor = peliculaActorfromDataBase;
+
+				FilmActors filmActorfromDataBase = new FilmActors();
+
+				filmActorfromDataBase.setCache(resultSet.getInt(1));
+				filmActorfromDataBase.setRole(resultSet.getString(2));
+				filmActorfromDataBase.setCodActor(resultSet.getInt(3));
+				filmActorfromDataBase.setCodFilm(resultSet.getInt(4));
+				filmActor = filmActorfromDataBase;
 				preparedStatement.close();
 			}
 			preparedStatement = conn.prepareStatement("SELECT * FROM Actor where cod=" + filmActor.getCodActor());
@@ -82,7 +84,7 @@ public class RepositoryFilmActors {
 			while (resultSet.next()) {
 				Actor actorfromDataBase = new Actor();
 				actorfromDataBase.setName(resultSet.getString(2));
-				actorfromDataBase.setYearofbirthday(resultSet.getInt(3));
+				actorfromDataBase.setYearOfBirthday(resultSet.getInt(3));
 				filmActor.setActor(actorfromDataBase);
 				preparedStatement.close();
 			}
@@ -90,11 +92,11 @@ public class RepositoryFilmActors {
 			preparedStatement = conn.prepareStatement("SELECT * FROM FILM where cod=" + filmActor.getCodFilm());
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				Film peliculafromDataBase = new Film();
-				peliculafromDataBase.setCod(resultSet.getInt(1));
-				peliculafromDataBase.setTitle(resultSet.getString(2));
-				peliculafromDataBase.setCodDirector(resultSet.getInt(3));
-				filmActor.setFilm(peliculafromDataBase);
+				Film filmfromDataBase = new Film();
+				filmfromDataBase.setCod(resultSet.getInt(1));
+				filmfromDataBase.setTitle(resultSet.getString(2));
+				filmfromDataBase.setCodDirector(resultSet.getInt(3));
+				filmActor.setFilm(filmfromDataBase);
 			}
 
 		} catch (SQLException e) {

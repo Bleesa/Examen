@@ -7,7 +7,7 @@ public class Film {
 	private String title;
 	private Integer codDirector;
 	private Director director;
-	private List<FilmActors> peliculaActor;
+	private List<FilmActors> filmActor;
 	public Integer getCOD() {
 		return cod;
 	}
@@ -19,8 +19,8 @@ public class Film {
 		return codDirector;
 	}
 
-	public void setCodDirector(Integer Codowner) {
-		codDirector = Codowner;
+	public void setCodDirector(Integer codOwner) {
+		codDirector = codOwner;
 	}
 	
 	public Director getDirector() {
@@ -32,11 +32,11 @@ public class Film {
 	}
 
 	public List<FilmActors> getFilmActor() {
-		return peliculaActor;
+		return filmActor;
 	}
 
-	public void setFilmActor(List<FilmActors> peliculaActor) {
-		this.peliculaActor = peliculaActor;
+	public void setFilmActor(List<FilmActors> filmActor) {
+		this.filmActor = filmActor;
 	}
 	public String getTitle() {
 		return title;

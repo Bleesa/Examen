@@ -18,6 +18,7 @@ public class FillPeliculaActorServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		FilmActors filmActor = ExamAssembler.assembleFilmActorFrom(req);
 		service.insertFilmActor(filmActor);
 		doAction(req, resp);
@@ -25,6 +26,7 @@ public class FillPeliculaActorServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String codFilm = req.getParameter("codPelicula");
 		String codActor = req.getParameter("codActor");
 		req.setAttribute("codPelicula", codFilm);
@@ -33,6 +35,7 @@ public class FillPeliculaActorServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		redirect(req, resp);
 	}
 

@@ -14,16 +14,21 @@ public class ExamAssembler {
 		String name=req.getParameter("NAME");
 		Integer yearofbirthday=Integer.parseInt(req.getParameter("YEAROFBIRTHDAY"));
 		actor.setName(name);
-		actor.setYearofbirthday(yearofbirthday);
+
+		actor.setYearOfBirthday(yearofbirthday);
+
 		return actor;
 	}
 	
 	public static Film assembleFilmFrom(HttpServletRequest req) {
+
 		Film film = new Film();
 		String titulo=req.getParameter("title");
 		Integer codowner=Integer.parseInt(req.getParameter("CODOWNER"));
+
 		film.setTitle(titulo);
 		film.setCodDirector(codowner);
+
 		return film;
 	}
 	
@@ -32,19 +37,22 @@ public class ExamAssembler {
 		Director director = new Director();
 		String NAME=req.getParameter("NAME");
 		director.setName(NAME);
+
 		return director;
 	}
 
 	public static FilmActors assembleFilmActorFrom(HttpServletRequest req) {
 		FilmActors FilmActor = new FilmActors();
-		String codPelicula = req.getParameter("codPelicula");
+		String codFilm = req.getParameter("codPelicula");
 		String codActor = req.getParameter("codActor");
 		String cache = req.getParameter("cache");
 		String role = req.getParameter("role");
-		FilmActor.setCodFilm(Integer.parseInt(codPelicula));
+
+		FilmActor.setCodFilm(Integer.parseInt(codFilm));
 		FilmActor.setCodActor(Integer.parseInt(codActor));
 		FilmActor.setCache(Integer.parseInt(cache));
 		FilmActor.setRole(role);
+
 		return FilmActor;
 	}
 

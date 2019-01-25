@@ -29,7 +29,7 @@ public class Service {
 		return repositoryDirector.searchAllDirectors();
 	}
 	public List<Film> selectAllPelicula() {
-		return repositoryFilm.searchAllPeliculas();
+		return repositoryFilm.searchAllFilms();
 	}
 	
 	public void insert(Actor actor) {
@@ -49,7 +49,7 @@ public class Service {
 
 	}
 	public void delete(Film film) {
-		repositoryFilm.searchAndDeletePelicula(film.getCOD());
+		repositoryFilm.searchAndDeleteFilm(film.getCOD());
 		
 	}
 	public void delete(Director director) {

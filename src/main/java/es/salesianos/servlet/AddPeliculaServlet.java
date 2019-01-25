@@ -21,12 +21,14 @@ private FilmService service = new FilmService();
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		Film film = assembler.assembleFilmFromRequest(req);
 		service.addFilm(film);
 		redirect(req,resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addPelicula.jsp");
 		dispatcher.forward(req,resp);
 	}

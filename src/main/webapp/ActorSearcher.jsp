@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Index page</title>
 </head>
+
 <body>
 
 	<%
@@ -18,6 +19,7 @@
 	%>
 
 	<form action="/ActorSearcher" method="post">
+	
 		<span>Looking By Actor: <input type="text" name="name"></span>
 		<br /> <input type="submit" value="Send">
 	</form>

@@ -20,12 +20,14 @@ public class FilmsList extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		List<Film> listAllFilms = servicio.listAllFilms();
 		req.setAttribute("listAllFilms", listAllFilms);
 		redirect(req,resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addPelicula.jsp");
 		dispatcher.forward(req,resp);
 	}

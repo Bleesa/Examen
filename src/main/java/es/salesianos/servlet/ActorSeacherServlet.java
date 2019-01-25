@@ -19,6 +19,7 @@ public class ActorSeacherServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		doAction(req, resp);
 	}
 

@@ -24,12 +24,14 @@ public class FilmActorServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		Film film = ExamAssembler.assembleFilmFrom(req);
 		service.addFilm(film);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String codString = req.getParameter("cod");
 		if(null != codString) {
 			int cod = Integer.parseInt(codString);

@@ -1,7 +1,5 @@
 package es.salesianos.utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -9,6 +7,7 @@ import java.util.GregorianCalendar;
 public class DateConverter {
 
 	public Integer getAge(Date date) {
+
 		Integer age = null;
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(date);

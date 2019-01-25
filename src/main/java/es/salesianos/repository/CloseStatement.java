@@ -6,10 +6,13 @@ import java.sql.SQLException;
 public class CloseStatement {
 
 	private void close(PreparedStatement prepareStatement) {
+
 		try {
 			prepareStatement.close();
 		} catch (SQLException e) {
+
 			e.printStackTrace();
+
 			throw new RuntimeException(e);
 		}
 	}

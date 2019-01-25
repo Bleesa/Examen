@@ -27,6 +27,7 @@ public class CharacterSearcherServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		String role = req.getParameter("role");
 		if (role != null) {
 			FilmActors selectFilmActor = service.filterAllPeliculaActor(role);
@@ -36,6 +37,7 @@ public class CharacterSearcherServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/characterSearcher.jsp");
 		dispatcher.forward(req, resp);
 	}

@@ -21,12 +21,14 @@ public class AddDirectorServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		Director director = assembler.assembleDirectorFromRequest(req);
 		service.addDirector(director);
 		redirect(req,resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addDirector.jsp");
 		dispatcher.forward(req,resp);
 	}

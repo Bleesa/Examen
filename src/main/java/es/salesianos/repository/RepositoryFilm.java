@@ -16,6 +16,7 @@ import es.salesianos.model.Film;
 public class RepositoryFilm {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
+
 	ConnectionManager manager = new ConnectionH2();
 
 
@@ -59,8 +60,8 @@ public class RepositoryFilm {
 		manager.close(conn);
 	}
 
-	public List<Film> searchAllPeliculas() {
-		List<Film> listPeliculas = new ArrayList<Film>();
+	public List<Film> searchAllFilms() {
+		List<Film> listFilms = new ArrayList<Film>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -69,13 +70,13 @@ public class RepositoryFilm {
 			prepareStatement = conn.prepareStatement("SELECT * FROM FILM");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				Film peliculaInDataBase = new Film();
+				Film filmInDataBase = new Film();
 				
-				peliculaInDataBase.setCod(resultSet.getInt(1));
-				peliculaInDataBase.setTitle(resultSet.getString(2));
-				peliculaInDataBase.setCodDirector(resultSet.getInt(3));
+				filmInDataBase.setCod(resultSet.getInt(1));
+				filmInDataBase.setTitle(resultSet.getString(2));
+				filmInDataBase.setCodDirector(resultSet.getInt(3));
 
-				listPeliculas.add(peliculaInDataBase);
+				listFilms.add(filmInDataBase);
 			}
 			
 		} catch (SQLException e) {
@@ -87,10 +88,10 @@ public class RepositoryFilm {
 			manager.close(conn);
 		}
 
-		return listPeliculas;
+		return listFilms;
 	}
 
-	public Film searchAndDeletePelicula(Integer codFilm) {
+	public Film searchAndDeleteFilm(Integer codFilm) {
 		Film ownerInDatabase = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);

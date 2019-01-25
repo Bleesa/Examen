@@ -20,14 +20,19 @@ public class ActorsList extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		List<Actor> listAllActors = servicio.listAllActors();
+
 		req.setAttribute("listAllActors", listAllActors);
+
 		redirect(req,resp);
 	}
 	
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addActor.jsp");
+
 		dispatcher.forward(req,resp);
 	}
 }

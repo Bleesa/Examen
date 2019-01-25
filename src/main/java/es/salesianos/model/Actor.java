@@ -6,33 +6,41 @@ import java.util.List;
 public class Actor {
 	private Integer cod;
 	private String name;
-	private Integer yearofbirthday;
+	private Integer yearOfBirthday;
 	private List<FilmActors> filmActor = new ArrayList<FilmActors>();
+
 	public Integer getCod() {
+
 		return cod;
+
 	}
+
 	public void setCod(Integer cod) {
 		this.cod = cod;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getYearofbirthday() {
-		return yearofbirthday;
+
+	public Integer getYearOfBirthday() {
+		return yearOfBirthday;
 	}
-	public void setYearofbirthday(Integer yearofbirthday) {
-		this.yearofbirthday = yearofbirthday;
+
+	public void setYearOfBirthday(Integer yearofbirthday) {
+		this.yearOfBirthday = yearofbirthday;
 	}
 	
 	public List<FilmActors> getFilmActor() {
 		return filmActor;
 	}
 
-	public void setFilmActor(List<FilmActors> peliculaActor) {
-		this.filmActor = peliculaActor;
+	public void setFilmActor(List<FilmActors> filmActor) {
+		this.filmActor = filmActor;
 	}
 
 }

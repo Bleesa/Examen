@@ -47,7 +47,7 @@ public class RepositoryActor {
 			preparedStatement = conn.prepareStatement("INSERT INTO ACTOR (NAME,YEAROFBIRTHDATE)" +
 					"VALUES (?, ?)");
 			preparedStatement.setString(1, actor.getName());
-			preparedStatement.setInt(2, actor.getYearofbirthday());
+			preparedStatement.setInt(2, actor.getYearOfBirthday());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -62,6 +62,7 @@ public class RepositoryActor {
 	}
 
 	public List<Actor> searchAllActors() {
+
 		List<Actor> listOwners = new ArrayList<Actor>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -74,7 +75,7 @@ public class RepositoryActor {
 				
 				actorInDataBase.setCod(resultSet.getInt(1));
 				actorInDataBase.setName(resultSet.getString(2));
-				actorInDataBase.setYearofbirthday(resultSet.getInt(3));
+				actorInDataBase.setYearOfBirthday(resultSet.getInt(3));
 			
 				
 				listOwners.add(actorInDataBase);
@@ -112,15 +113,17 @@ public class RepositoryActor {
 	
 
 	public List<Actor> filterByYearOfDateBetween(int beginDate, int endDate) {
+
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		List<Actor> list = new ArrayList<Actor>();
+
 		try {
 			preparedStatement = conn
 					.prepareStatement("SELECT * FROM ACTOR WHERE yearOfBirthDate BETWEEN (?) AND (?)");
 			preparedStatement.setInt(1, beginDate);
 			preparedStatement.setInt(2, endDate);
-			System.out.println("llego");
+
 			System.out.println(beginDate);
 			System.out.println(endDate);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -128,7 +131,7 @@ public class RepositoryActor {
 				Actor actor = new Actor();
 				actor.setCod(resultSet.getInt(1));
 				actor.setName(resultSet.getNString(2));
-				actor.setYearofbirthday(resultSet.getInt(3));
+				actor.setYearOfBirthday(resultSet.getInt(3));
 				list.add(actor);
 			}
 
@@ -154,7 +157,7 @@ public class RepositoryActor {
 				Actor actor = new Actor();
 				actor.setCod(resultSet.getInt(1));
 				actor.setName(resultSet.getNString(2));
-				actor.setYearofbirthday(resultSet.getInt(3));
+				actor.setYearOfBirthday(resultSet.getInt(3));
 				list.add(actor);
 			}
 			
@@ -180,7 +183,7 @@ public class RepositoryActor {
 				Actor actorfromDataBase = new Actor();
 				actorfromDataBase.setCod(resultSet.getInt(1));
 				actorfromDataBase.setName(resultSet.getString(2));
-				actorfromDataBase.setYearofbirthday(resultSet.getInt(3));
+				actorfromDataBase.setYearOfBirthday(resultSet.getInt(3));
 				actor = actorfromDataBase;
 			}
 
