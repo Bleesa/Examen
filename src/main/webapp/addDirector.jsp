@@ -35,6 +35,7 @@
 				<td>Erase</td>
 			</tr>
 		</thead>
+		
 		<tbody>
 			<c:forEach var="director1" items="${listAllDirectors}">
 				<tr>

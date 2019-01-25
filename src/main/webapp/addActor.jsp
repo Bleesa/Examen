@@ -30,11 +30,13 @@
 		<input type="submit">
 	</form>
 	<form action="AddActor" method="post">
+	
 		<span>From:</span>
 		<input type="text" name="beginDate">
 		<span>To:</span>
 		<input type="text" name="endDate">
 		<input type="submit">
+		
 	</form>
 	<table border="1">
 		<thead>

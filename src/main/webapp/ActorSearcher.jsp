@@ -22,6 +22,7 @@
 	
 		<span>Looking By Actor: <input type="text" name="name"></span>
 		<br /> <input type="submit" value="Send">
+		
 	</form>
 	<br />
 	<br />
