@@ -4,7 +4,7 @@
   <groupId>es.salesianos</groupId>
   <artifactId>Recuperacion</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Recuperacion</name>
+  <name>Alberto Examen</name>
   <packaging>war</packaging>
   
 	<dependencies>

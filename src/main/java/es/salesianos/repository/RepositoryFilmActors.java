@@ -19,6 +19,7 @@ public class RepositoryFilmActors {
 	ConnectionManager manager = new ConnectionH2();
 
 
+
 	private void close(PreparedStatement prepareStatement) {
 		try {
 			prepareStatement.close();
@@ -43,13 +44,14 @@ public class RepositoryFilmActors {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO FILMACTOR (cache, role, codActor, codFilm)" + "VALUES (?, ?, ?, ?)");
+					.prepareStatement("INSERT INTO FILMACTOR (cache, role, codActor, codFilm) VALUES (?, ?, ?, ?)");
 			preparedStatement.setInt(1, filmActor.getCache());
 			preparedStatement.setString(2, filmActor.getRole());
 			preparedStatement.setInt(3, filmActor.getCodActor());
 			preparedStatement.setInt(4, filmActor.getCodFilm());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
+
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {

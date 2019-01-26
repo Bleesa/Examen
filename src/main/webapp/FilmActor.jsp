@@ -20,17 +20,17 @@
 <table border="1">
 	<thead>
 		<tr>
-			<td>Cod</td>
-			<td>Title</td>
-			<td>Asociate Actor</td>
+			<td>cod</td>
+			<td>title</td>
+			<td>asociate Actor</td>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="film" items="${listAllFilms}">
 			<tr>
-				<td><c:out value="${film.COD}"/> </td>
-				<td><c:out value="${film.TITTLE}"/> </td>
-				<td><a href="/recoveryFilm?cod=${film.COD}">Asociate</a></td>
+				<td><c:out value="${film.cod}"/> </td>
+				<td><c:out value="${film.tittle}"/> </td>
+				<td><a href="/recoveryFilm?cod=${film.cod}">Asociate</a></td>
 	    	</tr>
 		</c:forEach>
 	</tbody>

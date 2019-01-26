@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="/pelicula" method="post">
+	<form action="/film" method="post">
 		<span>cod:</span> <input type="text" name="cod"> <br />
 		<span>NAME:</span> <input type="text" name="name"> <br />
 		<span>YEAR:</span> <input type="text" name="year"> <br />
