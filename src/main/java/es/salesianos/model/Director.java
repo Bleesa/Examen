@@ -8,25 +8,20 @@ public class Director {
 	public Integer getCod() {
 		return cod;
 	}
-
 	public void setCod(Integer cod) {
 		this.cod = cod;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	private List<Film> films;
 
+	private List<Film> films;
 	public List<Film> getPeliculas() {
 		return films;
 	}
-
 	public void setPeliculas(List<Film> films) {
 		this.films = films;
 	}
