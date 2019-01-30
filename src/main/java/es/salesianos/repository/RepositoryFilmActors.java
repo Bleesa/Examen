@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
@@ -17,13 +19,14 @@ public class RepositoryFilmActors {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
-
+	private static final Logger log = LogManager.addLogger(RepositoryActor.class);
 
 
 	private void close(PreparedStatement prepareStatement) {
 		try {
 			prepareStatement.close();
 		} catch (SQLException e) {
+			log.error("Error a la hora de CERRAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -33,6 +36,7 @@ public class RepositoryFilmActors {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
+			log.error("Error a la hora de CERRAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -51,7 +55,7 @@ public class RepositoryFilmActors {
 			preparedStatement.setInt(4, filmActor.getCodFilm());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-
+			log.error("Error a la hora de insertar " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
@@ -81,7 +85,7 @@ public class RepositoryFilmActors {
 				filmActor = filmActorfromDataBase;
 				preparedStatement.close();
 			}
-			preparedStatement = conn.prepareStatement("SELECT * FROM Actor where cod=" + filmActor.getCodActor());
+			preparedStatement = conn.prepareStatement("SELECT * FROM Actor where cod=filmActor.getCodActor()");
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Actor actorfromDataBase = new Actor();
@@ -91,7 +95,7 @@ public class RepositoryFilmActors {
 				preparedStatement.close();
 			}
 
-			preparedStatement = conn.prepareStatement("SELECT * FROM FILM where cod=" + filmActor.getCodFilm());
+			preparedStatement = conn.prepareStatement("SELECT * FROM FILM where cod= + filmActor.getCodFilm()");
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Film filmfromDataBase = new Film();
@@ -102,6 +106,7 @@ public class RepositoryFilmActors {
 			}
 
 		} catch (SQLException e) {
+			log.error("Error  " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {

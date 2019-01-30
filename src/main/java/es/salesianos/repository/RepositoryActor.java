@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
@@ -15,12 +17,12 @@ import es.salesianos.model.Film;
 import es.salesianos.model.FilmActors;
 
 
-
 public class RepositoryActor {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
 
+	private static final Logger log = LogManager.addLogger(RepositoryActor.class);
 
 	private void close(PreparedStatement prepareStatement) {
 		try {
@@ -35,6 +37,7 @@ public class RepositoryActor {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
+			log.error("Error a la hora de CERRAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -51,6 +54,7 @@ public class RepositoryActor {
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
+			log.error("Error a la hora de insertar un actor " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
@@ -82,6 +86,7 @@ public class RepositoryActor {
 			}
 			
 		} catch (SQLException e) {
+			log.error("Error a la hora de BUSCAR un actor " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
@@ -102,6 +107,7 @@ public class RepositoryActor {
 			prepareStatement.setInt(1, codActor);
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
+			log.error("Error a la hora de eliminar un actor " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
@@ -136,6 +142,7 @@ public class RepositoryActor {
 			}
 
 		} catch (SQLException e) {
+			log.error("Error a la hora DE BUSCAR POR FECHAS  " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
@@ -162,6 +169,7 @@ public class RepositoryActor {
 			}
 			
 		} catch (SQLException e) {
+			log.error("Error a la hora de SELECCIONAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
@@ -187,7 +195,7 @@ public class RepositoryActor {
 				actor = actorfromDataBase;
 			}
 
-			preparedStatement = conn.prepareStatement("SELECT * FROM FILMACTOR where codactor=" + actor.getCod());
+			preparedStatement = conn.prepareStatement("SELECT * FROM FILMACTOR where codactor= actor.getCodActor()");
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				FilmActors peliculaActorfromDataBase = new FilmActors();
@@ -199,7 +207,7 @@ public class RepositoryActor {
 			for (FilmActors peliculaActor : actor.getFilmActor()) {
 
 				preparedStatement = conn
-						.prepareStatement("SELECT * FROM FILM where cod=" + peliculaActor.getCodFilm());
+						.prepareStatement("SELECT * FROM FILM where cod= peliculaActor.getCodFilm()");
 				resultSet = preparedStatement.executeQuery();
 				while (resultSet.next()) {
 					Film peliculafromDataBase = new Film();
@@ -212,7 +220,7 @@ public class RepositoryActor {
 			index = 0;
 			for (FilmActors peliculaActor : actor.getFilmActor()) {
 				preparedStatement = conn.prepareStatement(
-						"SELECT * FROM DIRECTOR where COD=" + peliculaActor.getFilm().getCodDirector());
+						"SELECT * FROM DIRECTOR where COD=peliculaActor.getFilm().getCodDirector()");
 				resultSet = preparedStatement.executeQuery();
 				while (resultSet.next()) {
 					Director directorfromDataBase = new Director();
@@ -223,6 +231,7 @@ public class RepositoryActor {
 			}
 
 		} catch (SQLException e) {
+			log.error("Error a la hora de FILTRAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {

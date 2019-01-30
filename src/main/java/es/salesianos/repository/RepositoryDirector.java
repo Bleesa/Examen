@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
@@ -17,7 +19,7 @@ public class RepositoryDirector {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
-
+	private static final Logger log = LogManager.addLogger(RepositoryActor.class);
 
 	private void close(PreparedStatement prepareStatement) {
 		try {
@@ -32,6 +34,7 @@ public class RepositoryDirector {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
+			log.error("Error a la hora de CERRAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
@@ -49,6 +52,7 @@ public class RepositoryDirector {
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
+			log.error("Error a la hora de INSERTAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
@@ -80,6 +84,7 @@ public class RepositoryDirector {
 			}
 			
 		} catch (SQLException e) {
+			log.error("Error a la hora de SELECCIONAR DIRECTOR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
@@ -100,6 +105,7 @@ public class RepositoryDirector {
 			prepareStatement.setInt(1, codDirector);
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
+			log.error("Error a la hora de BUSCAR PARA BORRAR" + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
