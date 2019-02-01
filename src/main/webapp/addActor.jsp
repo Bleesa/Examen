@@ -47,11 +47,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="actor1" items="${listAllActors}">
+			<c:forEach var="actor" items="${listAllActors}">
 				<tr>
-					<td><c:out value="${actor1.name}" /></td>
-					<td><c:out value="${actor1.yearofbirthday}" /></td>
-					<td><a href="/deleteActor?codActor=${actor1.cod}">DELETE</a>
+					<td><c:out value="${actor.name}" /></td>
+					<td><c:out value="${actor.yearofbirthday}" /></td>
+					<td><a href="/deleteActor?codActor=${actor.cod}">DELETE</a>
 					</td>
 				</tr>
 			</c:forEach>

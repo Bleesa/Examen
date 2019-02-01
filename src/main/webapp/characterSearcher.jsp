@@ -14,7 +14,7 @@
 <body>
 
 	<%
-		FilmActors selectPeliculaActor = (FilmActors)request.getAttribute("selectPeliculaActor");
+		FilmActors selectFilmActor = (FilmActors)request.getAttribute("selectFilmActor");
 	%>
 
 	<form action="/characterSearcher" method="post">
@@ -36,9 +36,9 @@
 		</thead>
 		<tbody>
 				<tr>
-					<td><c:out value="${selectPeliculaActor.film.TITTLE}" /></td>
-										<td><c:out value="${selectPeliculaActor.actor.name}" /></td>
-					<td><c:out value="${selectPeliculaActor.role}" /></td>
+					<td><c:out value="${selectFilmActor.film.tittle}" /></td>
+										<td><c:out value="${selectFilmActor.actor.name}" /></td>
+					<td><c:out value="${selectFilmActor.role}" /></td>
 				</tr>
 		</tbody>
 	</table>

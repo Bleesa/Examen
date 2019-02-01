@@ -4,7 +4,7 @@
   
   <description>
 		EXAMEN DE MERDA
-	</description>
+</description>
 	
   <servlet>
     <servlet-name>ActorsList</servlet-name>
@@ -68,8 +68,9 @@
   </servlet>
   <servlet>
 	<servlet-name>characterSearcherServlet</servlet-name>
-	<servlet-class>es.salesianos.servlet.CharacterSearcherServlet
-		</servlet-class>
+	<servlet-class>
+		es.salesianos.servlet.CharacterSearcherServlet
+	</servlet-class>
   </servlet>
   <servlet>
 		<servlet-name>ActorSeacherServlet</servlet-name>
@@ -78,14 +79,15 @@
   </servlet>
   
     <servlet-mapping>
-    <servlet-name>FilmActorServlet</servlet-name>
-    <url-pattern>/FilmActor</url-pattern>
+	    <servlet-name>FilmActorServlet</servlet-name>
+	    <url-pattern>/FilmActor</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>AddActorServlet</servlet-name>
     <url-pattern>AddActor</url-pattern>
   </servlet-mapping> 
+  
   <servlet-mapping>
     <servlet-name>FilmsList</servlet-name>
     <url-pattern>LoadFilmsList</url-pattern>
@@ -130,9 +132,10 @@
     <servlet-name>RecoveryAddFilmServlet</servlet-name>
     <url-pattern>/recoveryFilm</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>FillPeliculaActorServlet</servlet-name>
-    <url-pattern>/fillPeliculaActor</url-pattern>
+    <url-pattern>/fillFilmActor</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
 	<servlet-name>characterSearcherServlet</servlet-name>

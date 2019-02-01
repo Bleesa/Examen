@@ -18,8 +18,8 @@
 </form>
 
 	<%
-		List<Film> peliculas = (List<Film>) request.getAttribute("listAllFilms");
-		pageContext.setAttribute("peliculas", peliculas);
+		List<Film> films = (List<Film>) request.getAttribute("listAllFilms");
+		pageContext.setAttribute("films", films);
 
 		
 	%>
@@ -27,7 +27,7 @@
 	<form action="AddPelicula" method="post">
 	
 		<span>Title:</span><input type="text" name="TITTLE">
-		<span>Director's Code:</span><input type="number" name="CODOWNER">
+		<span>Director's Code:</span><input type="number" name="CODEOWNER">
 		<input type="submit" value="Send">
 		
 	</form>
@@ -35,16 +35,16 @@
 		<thead>
 			<tr>
 				<td>Title</td>
-				<td>CodOwner</td>
+				<td>Code Owner</td>
 				<td>Erase</td>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="pelicula1" items="${listAllFilms}">
+			<c:forEach var="film1" items="${listAllFilms}">
 				<tr>
-					<td><c:out value="${pelicula1.title}" /></td>
-					<td><c:out value="${pelicula1.codDirector}" /></td>
-					<td><a href="/deletePelicula?codPelicula=${pelicula1.COD}">DELETE</a>
+					<td><c:out value="${film1.title}" /></td>
+					<td><c:out value="${film1.codDirector}" /></td>
+					<td><a href="/deletePelicula?codPelicula=${film1.cod}">DELETE</a>
 					</td>
 				</tr>
 			</c:forEach>

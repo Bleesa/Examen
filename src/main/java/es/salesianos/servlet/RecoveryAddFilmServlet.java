@@ -34,7 +34,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 
 		String codFilm = req.getParameter("cod");
 
-		req.setAttribute("codPelicula", codFilm);
+		req.setAttribute("codFilm", codFilm);
 		doAction(req, resp);
 }
 

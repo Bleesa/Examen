@@ -29,7 +29,7 @@ private FilmService service = new FilmService();
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addPelicula.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addFilm.jsp");
 		dispatcher.forward(req,resp);
 	}
 }
