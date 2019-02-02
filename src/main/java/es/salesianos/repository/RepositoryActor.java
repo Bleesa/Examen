@@ -28,6 +28,7 @@ public class RepositoryActor {
 		try {
 			prepareStatement.close();
 		} catch (SQLException e) {
+			log.error("Error a la hora de CERRAR " + e);
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}

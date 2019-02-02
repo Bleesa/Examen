@@ -8,7 +8,8 @@ public class Film {
 	private Integer codDirector;
 	private Director director;
 	private List<FilmActors> filmActor;
-	public Integer getCOD() {
+
+	public Integer getCod() {
 		return cod;
 	}
 	public void setCod(Integer cod) {
