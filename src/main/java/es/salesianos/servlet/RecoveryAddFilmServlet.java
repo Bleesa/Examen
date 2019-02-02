@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +15,9 @@ import es.salesianos.service.ActorService;
 import es.salesianos.service.FilmService;
 
 
-public class RecoveryAddFilmServlet extends HttpServlet {private static final long serialVersionUID = 1L;
+public class RecoveryAddFilmServlet {
+
+	private static final long serialVersionUID = 1L;
 
 	private FilmService service = new FilmService();
 	private ActorService service2 = new ActorService();

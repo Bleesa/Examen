@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +14,8 @@ import es.salesianos.service.DirectorService;
 /**
  * Servlet implementation class addOwnerServlet
  */
-public class AddDirectorServlet extends HttpServlet {
+public class AddDirectorServlet {
+
 	private DirectorService service = new DirectorService();
 	private ExamAssembler assembler = new ExamAssembler();
 

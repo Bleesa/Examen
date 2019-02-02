@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +12,7 @@ import es.salesianos.model.Film;
 import es.salesianos.repository.RepositoryActor;
 import es.salesianos.service.FilmService;
 
-public class FilmsList extends HttpServlet {
+public class FilmsList {
 	
 	private FilmService servicio = new FilmService();
 	private RepositoryActor repositoryActor = new  RepositoryActor();

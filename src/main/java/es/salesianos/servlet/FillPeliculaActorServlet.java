@@ -4,14 +4,15 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.FilmActors;
 import es.salesianos.model.assembler.ExamAssembler;
 import es.salesianos.service.FilmActorService;
-public class FillPeliculaActorServlet extends HttpServlet {
+
+public class FillPeliculaActorServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	private FilmActorService service = new FilmActorService();
