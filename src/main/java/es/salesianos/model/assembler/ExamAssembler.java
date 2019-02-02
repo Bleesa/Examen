@@ -2,11 +2,14 @@ package es.salesianos.model.assembler;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Component;
+
 import es.salesianos.model.Actor;
 import es.salesianos.model.Director;
 import es.salesianos.model.Film;
 import es.salesianos.model.FilmActors;
 
+@Component
 public class ExamAssembler {
 
 	public static Actor assembleActorFrom(HttpServletRequest req) {

@@ -2,8 +2,6 @@ package es.salesianos.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,6 +12,7 @@ import es.salesianos.repository.RepositoryActor;
 import es.salesianos.repository.RepositoryDirector;
 import es.salesianos.repository.RepositoryFilm;
 
+@Service
 public class Service {
 
 	Logger logger = LogManager.getLogger();

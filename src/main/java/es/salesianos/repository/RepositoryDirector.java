@@ -9,12 +9,14 @@ import java.util.List;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import org.springframework.stereotype.Repository;
+
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Director;
 
 
-
+@Repository
 public class RepositoryDirector {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";

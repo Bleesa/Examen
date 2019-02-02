@@ -5,6 +5,7 @@ package es.salesianos.service;
 import es.salesianos.model.FilmActors;
 import es.salesianos.repository.RepositoryFilmActors;
 
+@Service
 public class FilmActorService {
 
 	private RepositoryFilmActors repositoryFilmActors = new RepositoryFilmActors();

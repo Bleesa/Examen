@@ -5,6 +5,7 @@ import java.util.List;
 import es.salesianos.model.Film;
 import es.salesianos.repository.RepositoryFilm;
 
+@Service
 public class FilmService {
 	
 	

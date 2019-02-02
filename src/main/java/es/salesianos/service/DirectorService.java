@@ -5,7 +5,7 @@ import java.util.List;
 import es.salesianos.model.Director;
 import es.salesianos.repository.RepositoryDirector;
 
-
+@Service
 public class DirectorService {
 
 	private RepositoryDirector repositoryDirector = new RepositoryDirector();

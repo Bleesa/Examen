@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Film;
 
 
-
+@Repository
 public class RepositoryFilm {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";

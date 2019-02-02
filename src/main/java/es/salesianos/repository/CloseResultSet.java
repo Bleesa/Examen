@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CloseResultSet {
 
 	private static final Logger log = LogManager.addLogger(ClaseResultSet.class);
