@@ -1,34 +1,27 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import es.salesianos.model.Director;
 import es.salesianos.repository.RepositoryActor;
-import es.salesianos.service.DirectorService;
+import es.salesianos.service.GeneralInterface;
 
+@Controller
 public class DirectorsList {
 	
-	private DirectorService servicio = new DirectorService();
-	private RepositoryActor repositoryActor = new  RepositoryActor();
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Autowired
+	private GeneralInterface service;
 
-		List<Director> listAllDirectors = servicio.listAllDirectors();
-		req.setAttribute("listAllDirectors", listAllDirectors);
-		redirect(req,resp);
+	@Autowired
+	private RepositoryActor repositoryActor;
+	
+	@PostMapping(path = "/addDirector")
+	protected void listAllDirectors() {
+
+		service.listAllDirectors();
 	}
 	
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addDirector.jsp");
-		dispatcher.forward(req,resp);
-	}
 
 }

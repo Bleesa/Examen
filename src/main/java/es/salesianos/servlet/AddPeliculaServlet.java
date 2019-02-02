@@ -1,35 +1,31 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Film;
 import es.salesianos.model.assembler.ExamAssembler;
-import es.salesianos.service.FilmService;
+import es.salesianos.service.GeneralInterface;
 
 /**
  * Servlet implementation class addOwnerServlet
  */
+@Controller
 public class AddPeliculaServlet {
 
-private FilmService service = new FilmService();
-	private ExamAssembler assembler = new ExamAssembler();
+	@Autowired
+	private GeneralInterface service;
 
-	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Autowired
+	private ExamAssembler assembler;
 
-		Film film = assembler.assembleFilmFromRequest(req);
+	@PostMapping(path = "/addFilm.jsp")
+	public void addFilm(Film film) {
+
 		service.addFilm(film);
-		redirect(req,resp);
+
 	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addFilm.jsp");
-		dispatcher.forward(req,resp);
-	}
 }

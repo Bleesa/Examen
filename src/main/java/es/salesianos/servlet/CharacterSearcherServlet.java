@@ -1,43 +1,30 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import es.salesianos.service.GeneralInterface;
 
-import es.salesianos.model.FilmActors;
-import es.salesianos.service.FilmActorService;
-
+@Controller
 public class CharacterSearcherServlet {
 
 	private static final long serialVersionUID = 1L;
-	private FilmActorService service = new FilmActorService();
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
+	@Autowired
+	private GeneralInterface service;
+
+	@PostMapping(path = "/characterSearcher.jsp")
+	protected void characSeacher(String role) {
+
+		service.filterAllPeliculaActor(role);
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
+	@GetMapping(path = "characterSearcher")
+	protected String characterSearcher() {
+		return "characterSearcher";
 	}
 
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		String role = req.getParameter("role");
-		if (role != null) {
-			FilmActors selectFilmActor = service.filterAllPeliculaActor(role);
-			req.setAttribute("selectPeliculaActor", selectFilmActor);
-		}
-		redirect(req, resp);
-	}
-
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/characterSearcher.jsp");
-		dispatcher.forward(req, resp);
-	}
 }

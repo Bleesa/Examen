@@ -1,43 +1,32 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Actor;
-import es.salesianos.service.ActorService;
+import es.salesianos.service.GeneralInterface;
 
+@Controller
 public class ActorSeacherServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private ActorService service = new ActorService();
+	@Autowired
+	private GeneralInterface service;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@PostMapping(path = "/ActorSearcher")
+	protected void seacherActor(Actor actor) {
 
-		doAction(req, resp);
+		service.selectAllActor();
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doAction(req, resp);
+	@GetMapping(path = "ActorSearcher")
+	public String getPage() {
+		return "ActorSeacher";
 	}
 
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		String name = req.getParameter("name");
-		if (name != null) {
-			Actor listFilterActor = service.filterAllDirector(name);
-			req.setAttribute("listFilterActor", listFilterActor);
-		}
-		redirect(req, resp);
-	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ActorSearcher.jsp");
-		dispatcher.forward(req, resp);
-	}
+
 }

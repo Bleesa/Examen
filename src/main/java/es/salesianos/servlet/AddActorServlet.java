@@ -1,47 +1,28 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Actor;
-import es.salesianos.model.assembler.ExamAssembler;
-import es.salesianos.service.ActorService;
+import es.salesianos.service.GeneralInterface;
 
 /**
  * Servlet implementation class addOwnerServlet
  */
+
+@Controller
 public class AddActorServlet {
 
-	private ActorService service = new ActorService();
-	private ExamAssembler assembler = new ExamAssembler();
+	@Autowired
+	private GeneralInterface service;
 
-	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Autowired
+	private GeneralInterface assembler;
 
-		String parameter = req.getParameter("beginDate");
-		List<Actor> listAllActors = new ArrayList<>();
-		if (parameter != null) {
-			int beginDate = Integer.parseInt(parameter);
-			int endDate = Integer.parseInt(req.getParameter("endDate"));
-			listAllActors = service.filterAllActor(beginDate, endDate);
-		} else {
-			Actor actor = assembler.assembleActorFromRequest(req);
-			service.addActor(actor);
-			listAllActors = service.selectAllActor();
-		}
-		req.setAttribute("listAllActors", listAllActors);
-		
-		redirect(req,resp);
-	}
+	@PostMapping(path = "/addActor")
+	protected void addActor(Actor actor) {
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addActor.jsp");
-		dispatcher.forward(req,resp);
+		service.addActor(actor);
 	}
 }

@@ -1,37 +1,28 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Actor;
-import es.salesianos.repository.RepositoryActor;
-import es.salesianos.service.ActorService;
+import es.salesianos.service.GeneralInterface;
 
+@Controller
 public class ActorsList {
+
+	@Autowired
+	private GeneralInterface service;
 	
-	private ActorService servicio = new  ActorService();
-	private RepositoryActor repositoryActor = new  RepositoryActor();
+	@Autowired
+	private GeneralInterface repositoryActor;
 	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@PostMapping(path = "/addActor")
+	protected void addActor(Actor actor) {
 
-		List<Actor> listAllActors = servicio.listAllActors();
+		service.addActor(actor);
 
-		req.setAttribute("listAllActors", listAllActors);
-
-		redirect(req,resp);
 	}
 	
 	
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addActor.jsp");
-
-		dispatcher.forward(req,resp);
-	}
 }

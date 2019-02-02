@@ -6,7 +6,8 @@ import es.salesianos.model.Actor;
 import es.salesianos.repository.RepositoryActor;
 
 @Service
-public class ActorService {
+public class ActorService implements GeneralInterface {
+
 	private RepositoryActor repositoryActor = new RepositoryActor();
 
 	public RepositoryActor getRepository() {

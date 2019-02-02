@@ -1,41 +1,32 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import es.salesianos.service.GeneralInterface;
 
-import es.salesianos.service.Service;
-
+@Controller
 public class ActorServlet {
 
 
 	private static final long serialVersionUID = 1L;
 
-	private Service service = new Service();
+	@Autowired
+	private GeneralInterface service;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@PostMapping(path = "/actor")
+	protected void ActorList() {
 
-		doAction(req, resp);
+		service.listAllActors();
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		doAction(req, resp);
+	@GetMapping(path = "actor")
+	public String listActor() {
+		return "actor";
 	}
 
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		redirect(req, resp);
-	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/actor.jsp");
-		dispatcher.forward(req, resp);
-	}
 }

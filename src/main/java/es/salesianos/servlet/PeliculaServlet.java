@@ -1,61 +1,30 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import es.salesianos.model.Film;
 import es.salesianos.service.Service;
 
+@Controller
 public class PeliculaServlet {
 
 
 	private static final long serialVersionUID = 1L;
 
-	private Service service = new Service();
+	@Autowired
+	private Service service;
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		String codString = req.getParameter("cod");
-		String title = req.getParameter("title");
-		String codDirectorString = req.getParameter("codDirector");
-		Film film = new Film();
-		int cod = Integer.parseInt(codString);
-		film.setCod(cod);
-		int codDirector = Integer.parseInt(codDirectorString);
-		film.setCodDirector(codDirector);
-		film.setTitle(title);
-		service.insert(film);
-		doAction(req, resp);
+	@PostMapping(path = "/film")
+	protected void filmAll() {
+		service.selectAllPelicula();
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@GetMapping(path = "film")
+	protected String film() {
 
-		String codString = req.getParameter("cod");
-		
-		if(null != codString) {
-			Film film = new Film();
-			int cod = Integer.parseInt(codString);
-			film.setCod(cod);
-			service.delete(film);
-		}
-		doAction(req, resp);
+		return "film";
 	}
 
-	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		List<Film> selectAllPelicula = service.selectAllPelicula();
-		req.setAttribute("listAllPeliculas", selectAllPelicula);
-		redirect(req, resp);
-	}
-
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pelicula.jsp");
-		dispatcher.forward(req, resp);
-	}
 }

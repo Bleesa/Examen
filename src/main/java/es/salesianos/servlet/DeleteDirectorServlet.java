@@ -1,28 +1,22 @@
 package es.salesianos.servlet;
 
-import java.io.IOException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import es.salesianos.service.GeneralInterface;
 
-import es.salesianos.service.DirectorService;
-
+@Controller
 public class DeleteDirectorServlet {
-
-	private DirectorService service = new DirectorService();
 	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	@Autowired
+	private GeneralInterface service;
 
-		String codDirector = req.getParameter("codDirector");
-		service.searchAndDeleteDirector(Integer.parseInt(codDirector));
-		redirect(req, resp);
+	@GetMapping(path = "index")
+	protected String deleteDirector() {
+
+		return "index";
 	}
 
-	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-		dispatcher.forward(req,resp);
-	}
 }

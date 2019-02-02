@@ -48,7 +48,7 @@ public class Service {
 
 	}
 	public void delete(Film film) {
-		repositoryFilm.searchAndDeleteFilm(film.getCOD());
+		repositoryFilm.searchAndDeleteFilm(film.getCod());
 		
 	}
 	public void delete(Director director) {
