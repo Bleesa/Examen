@@ -3,6 +3,9 @@ package es.salesianos.service;
 import java.util.List;
 
 import es.salesianos.model.Actor;
+import es.salesianos.model.Director;
+import es.salesianos.model.Film;
+import es.salesianos.model.FilmActors;
 import es.salesianos.repository.RepositoryActor;
 
 @Service
@@ -48,5 +51,59 @@ public class ActorService implements GeneralInterface {
 	public Actor filterAllDirector(String name) {
 
 		return repositoryActor.filterAllActor(name);
+	}
+
+	@Override
+	public void selectAllActor() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addDirector(Director director) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void addFilm(Film film) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public FilmActors filterAllPeliculaActor(String role) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void searchAndDeleteDirector(int parseInt) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void searchAndDeleteFilm(int i) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Director> listAllDirectors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Film> listAllFilms() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertFilmActor(FilmActors filmActor) {
+		// TODO Auto-generated method stub
+
 	}
 }
