@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.FilmActors;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.FilmInterface;
 
 @Controller
 public class FillPeliculaActorServlet {
@@ -14,19 +14,19 @@ public class FillPeliculaActorServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	private GeneralInterface service;
+	private FilmInterface service;
 
-	@PostMapping(path = "/FillFilmActor")
+	@PostMapping(path = "/fillFilmActor")
 	protected void insertFilmActor(FilmActors filmActor) {
 
 		service.insertFilmActor(filmActor);
 
 	}
 
-	@GetMapping(path = "FillFilmActor")
+	@GetMapping(path = "fillFilmActor")
 	protected String insertFilmWithActor() {
 
-		return "FillFilmActor";
+		return "fillFilmActor";
 
 	}
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Actor;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.ActorInterface;
 
 @Controller
 public class ActorSeacherServlet {
@@ -14,15 +14,15 @@ public class ActorSeacherServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	private GeneralInterface service;
+	private ActorInterface service;
 
-	@PostMapping(path = "/ActorSearcher")
+	@PostMapping(path = "/actorSearcher")
 	protected void seacherActor(Actor actor) {
 
 		service.selectAllActor();
 	}
 
-	@GetMapping(path = "ActorSearcher")
+	@GetMapping(path = "actorSearcher")
 	public String getPage() {
 		return "ActorSeacher";
 	}

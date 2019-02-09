@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Film;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.FilmInterface;
 
 /**
  * Servlet implementation class PeliculaActorServlet
@@ -18,19 +18,19 @@ public class FilmActorServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	private GeneralInterface service;
+	private FilmInterface service;
 
 
-	@PostMapping(path = "/FilmActor")
+	@PostMapping(path = "/filmActor")
 	protected void addFilm(Film film) {
 
 		service.addFilm(film);
 	}
 
-	@GetMapping(path = "FilmActor")
-	protected String addFilmActor() {
+	@GetMapping(path = "filmActor")
+	protected String getFilmActorPage() {
 
-		return "FilmActor";
+		return "filmActor";
 	}
 
 

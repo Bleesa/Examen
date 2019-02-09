@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.FilmInterface;
 
 @Controller
 public class DeletePeliculaServlet {
 	
 	@Autowired
-	private GeneralInterface service;
+	private FilmInterface service;
 
 	@GetMapping(path = "index")
 	protected String searchDeleteFilm() {

@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.repository.RepositoryActor;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.DirectorInterface;
 
 @Controller
 public class DirectorsList {
 	
 	@Autowired
-	private GeneralInterface service;
+	private DirectorInterface service;
 
 	@Autowired
 	private RepositoryActor repositoryActor;

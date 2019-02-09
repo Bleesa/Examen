@@ -6,79 +6,9 @@
 		EXAMEN DE MERDA
 </description>
 	
-  <servlet>
-    <servlet-name>ActorsList</servlet-name>
-    <servlet-class>es.salesianos.servlet.ActorsList</servlet-class>
-  </servlet>
   
-  <servlet>
-    <servlet-name>DirectorsList</servlet-name>
-    <servlet-class>es.salesianos.servlet.DirectorsList
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>FilmsList</servlet-name>
-    <servlet-class>es.salesianos.servlet.FilmsList
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddActorServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.AddActorServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddDirectorServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.AddDirectorServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddPeliculaServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.AddPeliculaServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DeleteActorServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.DeleteActorServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DeletePeliculaServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.DeletePeliculaServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DeleteDirectorServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.DeleteDirectorServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>FilmActorServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.FilmActorServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>RecoveryAddFilmServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.RecoveryAddFilmServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>FillPeliculaActorServlet</servlet-name>
-    <servlet-class>es.salesianos.servlet.FillPeliculaActorServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-	<servlet-name>characterSearcherServlet</servlet-name>
-	<servlet-class>
-		es.salesianos.servlet.CharacterSearcherServlet
-	</servlet-class>
-  </servlet>
-  <servlet>
-		<servlet-name>ActorSeacherServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.ActorSeacherServlet
-		</servlet-class>
-  </servlet>
   
-    <servlet-mapping>
+   <servlet-mapping>
 	    <servlet-name>FilmActorServlet</servlet-name>
 	    <url-pattern>/FilmActor</url-pattern>
   </servlet-mapping>

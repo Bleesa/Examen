@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Actor;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.ActorInterface;
 
 @Controller
 public class ActorsList {
 
 	@Autowired
-	private GeneralInterface service;
+	private ActorInterface service;
 	
 	@Autowired
-	private GeneralInterface repositoryActor;
+	private ActorInterface repositoryActor;
 	
 	@PostMapping(path = "/addActor")
 	protected void addActor(Actor actor) {

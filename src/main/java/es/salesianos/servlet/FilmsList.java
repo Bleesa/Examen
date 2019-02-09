@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.repository.RepositoryActor;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.FilmInterface;
 
 @Controller
 public class FilmsList {
 	
 	@Autowired
-	private GeneralInterface service;
+	private FilmInterface service;
 
 	@Autowired
 	private RepositoryActor repositoryActor;

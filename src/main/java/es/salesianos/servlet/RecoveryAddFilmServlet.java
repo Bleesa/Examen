@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Film;
 import es.salesianos.service.ActorService;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.FilmInterface;
 
 @Controller
 public class RecoveryAddFilmServlet {
@@ -15,7 +15,7 @@ public class RecoveryAddFilmServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	private GeneralInterface service;
+	private FilmInterface service;
 
 	@Autowired
 	private ActorService service2;

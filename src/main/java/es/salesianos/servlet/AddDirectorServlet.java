@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Director;
 import es.salesianos.model.assembler.ExamAssembler;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.DirectorInterface;
 
 /**
  * Servlet implementation class addOwnerServlet
@@ -16,7 +16,7 @@ import es.salesianos.service.GeneralInterface;
 public class AddDirectorServlet {
 
 	@Autowired
-	private GeneralInterface service;
+	private DirectorInterface service;
 
 	@Autowired
 	private ExamAssembler assembler;

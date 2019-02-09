@@ -6,21 +6,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Film;
 import es.salesianos.model.assembler.ExamAssembler;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.FilmInterface;
 
 /**
  * Servlet implementation class addOwnerServlet
  */
 @Controller
-public class AddPeliculaServlet {
+public class AddFilmServlet {
 
 	@Autowired
-	private GeneralInterface service;
+	private FilmInterface service;
 
 	@Autowired
 	private ExamAssembler assembler;
 
-	@PostMapping(path = "/addFilm.jsp")
+	@PostMapping(path = "/addFilm")
 	public void addFilm(Film film) {
 
 		service.addFilm(film);

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.DirectorInterface;
 
 @Controller
 public class DirectorServlet {
@@ -14,7 +14,7 @@ public class DirectorServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	private GeneralInterface service;
+	private DirectorInterface service;
 
 
 	@PostMapping(path = "/director")

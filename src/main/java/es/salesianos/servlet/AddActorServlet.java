@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import es.salesianos.model.Actor;
-import es.salesianos.service.GeneralInterface;
+import es.salesianos.service.ActorInterface;
 
 /**
  * Servlet implementation class addOwnerServlet
@@ -15,10 +15,10 @@ import es.salesianos.service.GeneralInterface;
 public class AddActorServlet {
 
 	@Autowired
-	private GeneralInterface service;
+	private ActorInterface service;
 
 	@Autowired
-	private GeneralInterface assembler;
+	private ActorInterface assembler;
 
 	@PostMapping(path = "/addActor")
 	protected void addActor(Actor actor) {
