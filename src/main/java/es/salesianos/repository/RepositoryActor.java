@@ -26,8 +26,15 @@ public class RepositoryActor {
 
 	private static final Logger log = LogManager.addLogger(RepositoryActor.class);
 
-
-
+	private void close(PreparedStatement prepareStatement) {
+		try {
+			prepareStatement.close();
+		} catch (SQLException e) {
+			log.error("Error a la hora de CERRAR " + e);
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
 
 	public void insertActor(Actor actor) {
 		Connection conn = manager.open(jdbcUrl);
@@ -44,7 +51,7 @@ public class RepositoryActor {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			close(preparedStatement);
+
 		}
 		
 		
