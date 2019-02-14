@@ -48,9 +48,9 @@ public class ActorService implements GeneralInterface {
 		return repositoryActor.selectAllActor();
 	}
 
-	public Actor filterAllDirector(String name) {
+	public Director filterAllDirector(String name) {
 
-		return repositoryActor.filterAllActor(name);
+		return repository.filterAllActor(name);
 	}
 
 	@Override

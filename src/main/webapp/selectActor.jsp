@@ -14,9 +14,7 @@
 <body>
 
 	<%
-		List<Actor> listAllActores = (List<Actor>)request.getAttribute("listAllActores");
-	
-		 request.getAttribute("codPelicula");
+		Director listFilterActor = (Director)request.getAttribute("listFilterActor");
 	%>
 
 	<table border="1">

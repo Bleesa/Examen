@@ -15,7 +15,7 @@
 <body>
 
 	<%
-		Actor listFilterActor = (Actor)request.getAttribute("listFilterActor");
+		DtoActorFilm selectPeliculaActor = (DtoActorFilm)request.getAttribute("selectPeliculaActor");
 	%>
 
 	<form action="/ActorSearcher" method="post">
@@ -36,16 +36,9 @@
 		</thead>
 		<tbody>
 			<tr>
-					<c:forEach var="peliculaActor" items="${listFilterActor.filmActor}">
-					<tr>
-					<td>
-						<c:out value="${peliculaActor.film.name}" />
-						</td>
-					<td>
-						<c:out value="${peliculaActor.film.tittle}" />
-					</td>
-					</tr>
-					</c:forEach>
+					<td><c:out value="${selectPeliculaActor.title}" /></td>
+					<td><c:out value="${selectPeliculaActor.name}" /></td>
+					<td><c:out value="${selectPeliculaActor.year}" /></td>
 			</tr>
 		</tbody>
 	</table>

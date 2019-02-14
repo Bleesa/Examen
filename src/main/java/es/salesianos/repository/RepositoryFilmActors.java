@@ -11,8 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.Actor;
-import es.salesianos.model.Film;
+import es.salesianos.model.DtoActorFilm;
 import es.salesianos.model.FilmActors;
 
 
@@ -53,44 +52,24 @@ public class RepositoryFilmActors {
 
 	}
 
-	public FilmActors filterAllFilmActor(String role) {
+	public DtoActorFilm filterAllFilmActor(String role) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
-		FilmActors filmActor = null;
+		DtoActorFilm filmActor = null;
 		try {
-			preparedStatement = conn
-					.prepareStatement("SELECT * FROM FILMACTOR WHERE ROLE = (?)");
+			preparedStatement = conn.prepareStatement("SELECT TITTLE, NAME, YEAROFBIRTHDATE" + " FROM ((FILMACTOR"
+					+ " INNER JOIN FILM ON FILM.COD = FILMACTOR.CODFILM)"
+					+ " INNER JOIN ACTOR ON ACTOR.COD = FILMACTOR.CODACTOR)" + " WHERE FILMACTOR.ROLE = (?)");
+
 			preparedStatement.setString(1, role);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 
-				FilmActors filmActorFromDataBase = new FilmActors();
-
-				filmActorFromDataBase.setCache(resultSet.getInt(1));
-				filmActorFromDataBase.setRole(resultSet.getString(2));
-				filmActorFromDataBase.setCodActor(resultSet.getInt(3));
-				filmActorFromDataBase.setCodFilm(resultSet.getInt(4));
-				filmActor = filmActorFromDataBase;
-				preparedStatement.close();
-			}
-			preparedStatement = conn.prepareStatement("SELECT * FROM Actor where cod=filmActor.getCodActor()");
-			resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
-				Actor actorFromDataBase = new Actor();
-				actorFromDataBase.setName(resultSet.getString(2));
-				actorFromDataBase.setYearOfBirthday(resultSet.getInt(3));
-				filmActor.setActor(actorFromDataBase);
-				preparedStatement.close();
-			}
-
-			preparedStatement = conn.prepareStatement("SELECT * FROM FILM where cod= + filmActor.getCodFilm()");
-			resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
-				Film filmfromDataBase = new Film();
-				filmfromDataBase.setCod(resultSet.getInt(1));
-				filmfromDataBase.setTitle(resultSet.getString(2));
-				filmfromDataBase.setCodDirector(resultSet.getInt(3));
-				filmActor.setFilm(filmfromDataBase);
+				DtoActorFilm dtofromDataBase = new DtoActorFilm();
+				dtofromDataBase.setTitle(resultSet.getString(1));
+				dtofromDataBase.setName(resultSet.getString(2));
+				dtofromDataBase.setYear(resultSet.getInt(3));
+				filmActor = dtofromDataBase;
 			}
 
 		} catch (SQLException e) {
