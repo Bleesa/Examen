@@ -31,7 +31,6 @@ public class RepositoryActor {
 			prepareStatement.close();
 		} catch (SQLException e) {
 			log.error("Error a la hora de CERRAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
@@ -48,7 +47,6 @@ public class RepositoryActor {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			log.error("Error a la hora de insertar un actor " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
 
@@ -80,7 +78,6 @@ public class RepositoryActor {
 			
 		} catch (SQLException e) {
 			log.error("Error a la hora de BUSCAR un actor " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(resultSet);
@@ -101,7 +98,6 @@ public class RepositoryActor {
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
 			log.error("Error a la hora de eliminar un actor " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(prepareStatement);
@@ -136,7 +132,6 @@ public class RepositoryActor {
 
 		} catch (SQLException e) {
 			log.error("Error a la hora DE BUSCAR POR FECHAS  " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
@@ -163,7 +158,6 @@ public class RepositoryActor {
 			
 		} catch (SQLException e) {
 			log.error("Error a la hora de SELECCIONAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
@@ -191,9 +185,9 @@ public class RepositoryActor {
 			preparedStatement = conn.prepareStatement("SELECT * FROM FILMACTOR where codactor= actor.getCodActor()");
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				FilmActors peliculaActorfromDataBase = new FilmActors();
-				peliculaActorfromDataBase.setCodFilm(resultSet.getInt(4));
-				actor.getFilmActor().add(peliculaActorfromDataBase);
+				FilmActors filmActorfromDataBase = new FilmActors();
+				filmActorfromDataBase.setCodFilm(resultSet.getInt(4));
+				actor.getFilmActor().add(filmActorfromDataBase);
 			}
 
 			int index = 0;
@@ -225,7 +219,6 @@ public class RepositoryActor {
 
 		} catch (SQLException e) {
 			log.error("Error a la hora de FILTRAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);

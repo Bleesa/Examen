@@ -26,7 +26,6 @@ public class RepositoryFilm {
 			prepareStatement.close();
 		} catch (SQLException e) {
 			log.error("Error a la hora de CERRAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
@@ -43,7 +42,6 @@ public class RepositoryFilm {
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
 			close(preparedStatement);
@@ -73,10 +71,8 @@ public class RepositoryFilm {
 			}
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			close(resultSet);
 			close(prepareStatement);
 			manager.close(conn);
 		}
@@ -93,7 +89,6 @@ public class RepositoryFilm {
 			prepareStatement.setInt(1, codFilm);
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(prepareStatement);

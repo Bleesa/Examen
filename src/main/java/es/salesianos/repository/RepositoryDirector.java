@@ -28,7 +28,6 @@ public class RepositoryDirector {
 			prepareStatement.close();
 		} catch (SQLException e) {
 			log.error("Error a la hora de CERRAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
@@ -45,7 +44,6 @@ public class RepositoryDirector {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			log.error("Error a la hora de INSERTAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
 			close(preparedStatement);
@@ -77,10 +75,8 @@ public class RepositoryDirector {
 			
 		} catch (SQLException e) {
 			log.error("Error a la hora de SELECCIONAR DIRECTOR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			close(resultSet);
 			close(prepareStatement);
 			manager.close(conn);
 		}
@@ -98,7 +94,6 @@ public class RepositoryDirector {
 			prepareStatement.executeUpdate();
 		} catch (SQLException e) {
 			log.error("Error a la hora de BUSCAR PARA BORRAR" + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(prepareStatement);

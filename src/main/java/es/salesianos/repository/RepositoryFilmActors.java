@@ -28,7 +28,6 @@ public class RepositoryFilmActors {
 			prepareStatement.close();
 		} catch (SQLException e) {
 			log.error("Error a la hora de CERRAR " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
 	}
@@ -46,7 +45,6 @@ public class RepositoryFilmActors {
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			log.error("Error a la hora de insertar " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
@@ -66,22 +64,22 @@ public class RepositoryFilmActors {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 
-				FilmActors filmActorfromDataBase = new FilmActors();
+				FilmActors filmActorFromDataBase = new FilmActors();
 
-				filmActorfromDataBase.setCache(resultSet.getInt(1));
-				filmActorfromDataBase.setRole(resultSet.getString(2));
-				filmActorfromDataBase.setCodActor(resultSet.getInt(3));
-				filmActorfromDataBase.setCodFilm(resultSet.getInt(4));
-				filmActor = filmActorfromDataBase;
+				filmActorFromDataBase.setCache(resultSet.getInt(1));
+				filmActorFromDataBase.setRole(resultSet.getString(2));
+				filmActorFromDataBase.setCodActor(resultSet.getInt(3));
+				filmActorFromDataBase.setCodFilm(resultSet.getInt(4));
+				filmActor = filmActorFromDataBase;
 				preparedStatement.close();
 			}
 			preparedStatement = conn.prepareStatement("SELECT * FROM Actor where cod=filmActor.getCodActor()");
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				Actor actorfromDataBase = new Actor();
-				actorfromDataBase.setName(resultSet.getString(2));
-				actorfromDataBase.setYearOfBirthday(resultSet.getInt(3));
-				filmActor.setActor(actorfromDataBase);
+				Actor actorFromDataBase = new Actor();
+				actorFromDataBase.setName(resultSet.getString(2));
+				actorFromDataBase.setYearOfBirthday(resultSet.getInt(3));
+				filmActor.setActor(actorFromDataBase);
 				preparedStatement.close();
 			}
 
@@ -97,7 +95,6 @@ public class RepositoryFilmActors {
 
 		} catch (SQLException e) {
 			log.error("Error  " + e);
-			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			close(preparedStatement);
