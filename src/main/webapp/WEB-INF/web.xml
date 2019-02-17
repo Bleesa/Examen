@@ -1,78 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd" version="3.1">
-  <display-name>HelloWorld Application</display-name>
-  
-  <description>
-		EXAMEN DE MERDA
-</description>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>Archetype Created Web Application</display-name>
 	
-  
-  
-   <servlet-mapping>
-	    <servlet-name>FilmActorServlet</servlet-name>
-	    <url-pattern>/FilmActor</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>AddActorServlet</servlet-name>
-    <url-pattern>AddActor</url-pattern>
-  </servlet-mapping> 
-  
-  <servlet-mapping>
-    <servlet-name>FilmsList</servlet-name>
-    <url-pattern>LoadFilmsList</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DirectorsList</servlet-name>
-    <url-pattern>LoadDirectorsList</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ActorsList</servlet-name>
-    <url-pattern>LoadActorsList</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-	<servlet-name>ActorSeacherServlet</servlet-name>
-	<url-pattern>/ActorSearcher</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>DeleteActorServlet</servlet-name>
-    <url-pattern>/deleteActor</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>DeleteDirectorServlet</servlet-name>
-    <url-pattern>/deleteDirector</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DeletePeliculaServlet</servlet-name>
-    <url-pattern>/deletePelicula</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AddPeliculaServlet</servlet-name>
-    <url-pattern>AddPelicula</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AddDirectorServlet</servlet-name>
-    <url-pattern>AddDirector</url-pattern>
-  </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>RecoveryAddFilmServlet</servlet-name>
-    <url-pattern>/recoveryFilm</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>FillPeliculaActorServlet</servlet-name>
-    <url-pattern>/fillFilmActor</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-	<servlet-name>characterSearcherServlet</servlet-name>
-	<url-pattern>/characterSearcher</url-pattern>
-	</servlet-mapping>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-context.xml</param-value>
+	</context-param>
 
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
 </web-app>
